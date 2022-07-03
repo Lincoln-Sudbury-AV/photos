@@ -21,13 +21,13 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!--Custom CSS-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/photos/style.css">
 
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Work+Sans:wght@300;400&display=swap" rel="stylesheet">
 
     <!--Page Properties-->
-    <title>LSAV Photography</title>
+    <title>Page Not Found | LSAV Photography</title>
     <meta name="description" content="Photos by the Lincoln-Sudbury Regional High School Audio/Visual Team.">
     <link rel="icon" href="logo/favicon.ico">
     <link rel="icon" sizes="192x192" href="logo/highres-favicon.png">
@@ -35,39 +35,28 @@
 </head>
 <body>
     <!--Title-->
-    <h1 class="title"><a class="title" href="#">LSAV Photography</a></h1>
+    <h1 class="title"><a class="title" href="/photos">LSAV Photography</a></h1>
 
     <!--Navbar-->
     <div class="navbar-spacer">
         <nav class="navbar navbar-expand-md navbar-light" id="navbar">
-            <a class="navbar-brand center" href="#" id="navbar-brand">LSAV Photography</a>
+            <a class="navbar-brand center" href="/photos" id="navbar-brand">LSAV Photography</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-link-container" aria-controls="navbar-link-container" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbar-link-container">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">Home</a>
-                    <a class="nav-item nav-link" href="about">About</a>
+                    <a class="nav-item nav-link" href="/photos">Home</a>
+                    <a class="nav-item nav-link" href="/photos/about">About</a>
                 </div>
             </div>
         </nav>
     </div>
 
-    <!--Albums-->
-    <div class="container-fluid">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id="gallery">
-            <div class="gallery-container">
-                <div class="gallery-cover transparent" onclick="window.open('events?ls-graduation-2021','_self')"></div>
-                <div class="gallery-text top black shadow">LS Graduation 2021</div>
-                <img class="col gallery thumb" src="events/ls-graduation-2021/926-thumb.jpg" small-src="events/ls-graduation-2021/926-small.jpg" full-src="events/ls-graduation-2021/926-full.jpg">
-            </div>
-            <div class="gallery-container">
-                <div class="gallery-cover transparent" onclick="window.open('events?ls-graduation-2022','_self')"></div>
-                <div class="gallery-text top black shadow">LS Graduation 2022</div>
-                <img class="col gallery thumb" src="events/ls-graduation-2022/883-thumb.jpg" small-src="events/ls-graduation-2022/883-small.jpg" full-src="events/ls-graduation-2022/883-full.jpg">
-            </div>
-        </div>
+    <div class="error-container">
+        <h1 class="error-text">404</h1>
+        <p class="error-text">Like the C400s, this page cannot be found.</p>
     </div>
 
     <!--Footer-->
@@ -78,12 +67,11 @@
     <!--Context-Menu-->
     <div id="context-menu">©2022 LS Audio/Visual Team</div>
 
-
     <!--Bootstrap JavaScript-->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!--Custom JavaScript-->
-    <script src="js/script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>
