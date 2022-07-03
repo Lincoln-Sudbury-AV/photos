@@ -98,9 +98,19 @@ function importEvent(event) {
 
 function importCategory(event, category) {
     $("#navbar-brand").html("<svg class='navbar-back MuiSvgIcon-root jss79' focusable='false' viewBox='0 0 24 24' aria-hidden='true'><path d='M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z'></path></svg>" + event.name)
-    if (document.referrer.includes(document.domain) && document.referrer.split("?")[1] === eventId) {
-        $("#navbar-brand").attr("href", "#").on("click", function () {history.back()})
-    } else {
+    try {
+        if (document.referrer.includes(window.host) && document.referrer.split("?")[1] === eventId) {
+            $("#navbar-brand").attr("href", "#").on("click", function () {
+                try {
+                    history.back()
+                } catch (e) {
+                    window.location.pathname = "/photos/event?" + eventId
+                }
+            })
+        } else {
+            throw "backinvalid"
+        }
+    } catch (e) {
         $("#navbar-brand").attr("href", "event?" + eventId)
     }
     $("#gallery").empty().addClass(["row-cols-1", "row-cols-md-2", "row-cols-lg-3", "row-cols-xl-4"])
