@@ -49,6 +49,10 @@ img {
     background-color: transparent;
 }
 
+body {
+    overflow: overlay;
+}
+
 /*.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg,
 .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8,
 .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5,
@@ -236,23 +240,33 @@ footer {
     height: auto;
     border: 2.5vw solid white;
 }
-.image-modal-close {
+.image-modal-button {
     position: absolute;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    pointer-events: all;
+}
+.image-modal-button.close {
     left: 1vw;
     top: 1vw;
-    width: 30px;
-    height: 30px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M7 7 L 23 23 M23 7 L 7 23'%3E%3C/path%3E%3C/svg%3E");
-    cursor: pointer;
+    opacity: 1;
 }
-.image-modal-download {
-    position: absolute;
+.image-modal-button.download {
     right: 1vw;
     top: 1vw;
-    width: 30px;
-    height: 30px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden='true'%3E%3Cpath fill='rgba(255, 255, 255, 1)' d='M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z'%3E%3C/path%3E%3C/svg%3E");
-    cursor: pointer;
+}
+.image-modal-button.next {
+    right: 1vw;
+    top: calc(50vh - 15px);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='30' width='30' viewBox='9 9 30 30'%3E%3Cpath fill='rgba(255, 255, 255, 1)' d='m18.75 36-2.15-2.15 9.9-9.9-9.9-9.9 2.15-2.15L30.8 23.95Z'/%3E%3C/svg%3E");
+}
+.image-modal-button.prev {
+    left: 1vw;
+    top: calc(50vh - 15px);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='30' width='30' viewBox='9 9 30 30'%3E%3Cpath fill='rgba(255, 255, 255, 1)' d='M28.05 36 16 23.95 28.05 11.9l2.15 2.15-9.9 9.9 9.9 9.9Z'/%3E%3C/svg%3E");
 }
 
 .spinner {

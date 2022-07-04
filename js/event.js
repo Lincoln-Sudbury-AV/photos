@@ -96,6 +96,7 @@ function importEvent(event) {
     }
 }
 
+let galleryFullImgs;
 function importCategory(event, category) {
     $("#navbar-brand").html("<svg class='navbar-back MuiSvgIcon-root jss79' focusable='false' viewBox='0 0 24 24' aria-hidden='true'><path d='M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z'></path></svg>" + event.name)
     try {
@@ -114,6 +115,7 @@ function importCategory(event, category) {
         $("#navbar-brand").attr("href", "event?" + eventId)
     }
     $("#gallery").empty().addClass(["row-cols-1", "row-cols-md-2", "row-cols-lg-3", "row-cols-xl-4"])
+    galleryFullImgs = []
     for (let i in event.gallery) {
         if (category === customURIEncode(event.gallery[i].name)) {
             for (let j in event.gallery[i].photos) {
@@ -124,6 +126,7 @@ function importCategory(event, category) {
                 });
                 let galleryContainer = $("<div></div>").addClass("gallery-container").append(galleryImage);
                 $("#gallery").append(galleryContainer)
+                galleryFullImgs.push("events/" + event.id + "/" + event.gallery[i].photos[j] + "-full.jpg")
             }
         }
     }
@@ -190,6 +193,22 @@ function imageModal(img) {
     if (img === undefined || img === false) {
         $("#image-modal-image").off("load");
         $("#image-modal-container").css({"opacity": 0, "pointer-events": "none"});
+    } else if (img === "next" || img === "prev") {
+        if ($('#image-modal-container').css('opacity') == 1) {
+            let currentIndex = galleryFullImgs.indexOf($("#image-modal-image").attr("src"))
+            let newIndex = currentIndex;
+            if (img === "next") {
+                newIndex = currentIndex + 1
+            } else if (img === "prev") {
+                newIndex = currentIndex - 1
+            }
+            if (galleryFullImgs.length - 1 >= newIndex) {
+                imageModal(galleryFullImgs[newIndex])
+            } else {
+                imageModal(false)
+            }
+        }
+
     } else {
         $("#image-modal-image").hide(0).attr("src", img).on("load", function () {
             $("#image-modal-download").attr({
@@ -207,6 +226,24 @@ function imageModal(img) {
         },50)
     }
 }
+
+$(document).on("keyup", function(e) {
+    if (e.which === 37 /*Left*/) {
+        imageModal("prev");
+    } else if (e.which === 39 /*Right*/) {
+        imageModal("next");
+    }
+});
+
+$(".image-modal-button.next").on("click", function(e) {
+    e.stopPropagation();
+    imageModal("next");
+});
+
+$(".image-modal-button.prev").on("click", function(e) {
+    e.stopPropagation();
+    imageModal("prev");
+});
 
 
 //Lazy Loading
